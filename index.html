@@ -1,1 +1,71 @@
-<p>helo my homepage</p>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>こどもおみくじ</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffebcd;
+            padding: 50px;
+        }
+        h1 {
+            color: #ff4500;
+        }
+        .box {
+            padding: 20px;
+            border: 3px solid #ff4500;
+            border-radius: 10px;
+            background-color: #fffacd;
+            display: inline-block;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff1493;
+        }
+        .result {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #ff4500;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🎉 こども おみくじ 🎉</h1>
+    <div class="box">
+        <p id="result">おみくじをひいてみよう！</p>
+        <button onclick="drawOmikuji()">おみくじをひく！</button>
+    </div>
+
+    <script>
+        function drawOmikuji() {
+            const results = [
+                "🌟 大大吉！ きょうは すごく いいことが あるよ！",
+                "😊 大吉！ えがおで すごすと もっと いいことが あるよ！",
+                "🎈 中吉！ あたらしい ことに ちょうせん してみよう！",
+                "🌸 小吉！ おともだちと なかよく すると いいことが あるよ！",
+                "🍀 吉！ たのしい いちにちに しよう！",
+                "😺 末吉！ ねこさんが きみに しあわせを とどけるよ！",
+                "🎵 凶！？ でも だいじょうぶ！ すきな うたを うたおう！",
+                "✨ 超大吉！！ きょうは さいこうの いちにち！"
+            ];
+
+            const randomIndex = Math.floor(Math.random() * results.length);
+            document.getElementById("result").textContent = results[randomIndex];
+        }
+    </script>
+
+</body>
+</html>
