@@ -50,7 +50,9 @@
     </div>
 
     <script>
+        // おみくじを引く関数
         function drawOmikuji() {
+            // おみくじの結果を格納した配列
             const results = [
                 "🌟 大大吉！ きょうは すごく いいことが あるよ！",
                 "😊 大吉！ えがおで すごすと もっと いいことが あるよ！",
@@ -59,11 +61,32 @@
                 "🍀 吉！ たのしい いちにちに しよう！",
                 "😺 末吉！ ねこさんが きみに しあわせを とどけるよ！",
                 "🎵 凶！？ でも だいじょうぶ！ すきな うたを うたおう！",
-                "✨ 超大吉！！ きょうは さいこうの いちにち！"
+                "✨ 超大吉！！ きょうは さいこうの いちにち！",
+                "🌟 すごい運がある！ 今日一日を楽しもう！",
+                "💪 元気な一日！がんばって挑戦しよう！",
+                "🎉 ラッキーな日！友達と楽しんでね！",
+                "💫 今日も素敵なことが待ってるよ！",
+                "🥳 楽しい一日になりそうだね！",
+                "🌻 今日はリラックスして楽しんで！"
             ];
 
-            const randomIndex = Math.floor(Math.random() * results.length);
-            document.getElementById("result").textContent = results[randomIndex];
+            // 大吉と大凶の確率を低く設定するため、ランダムに選ばれるインデックスの範囲を調整
+            const randomChance = Math.random();
+
+            let selectedResult;
+            if (randomChance < 0.02) { // 2%の確率で大大吉
+                selectedResult = "🌟 大大吉！ きょうは すごく いいことが あるよ！";
+            } else if (randomChance < 0.05) { // 3%の確率で大吉
+                selectedResult = "😊 大吉！ えがおで すごすと もっと いいことが あるよ！";
+            } else if (randomChance < 0.1) { // 5%の確率で超大吉
+                selectedResult = "✨ 超大吉！！ きょうは さいこうの いちにち！";
+            } else { // 残りは他の結果
+                const randomIndex = Math.floor(Math.random() * results.length);
+                selectedResult = results[randomIndex];
+            }
+
+            // 結果を表示
+            document.getElementById("result").textContent = selectedResult;
         }
     </script>
 
